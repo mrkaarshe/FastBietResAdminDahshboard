@@ -3,10 +3,6 @@
 import { useState, useEffect } from "react"
 import { TrendingUp, Package, ShoppingCart, DollarSign } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
-
-
-
-
 import { ShoppingBag, CheckCircle, Clock, List, XCircle } from "lucide-react"
 
 import { Button } from "../components/ui/button"
@@ -74,6 +70,9 @@ const totalPrice = data.reduce((sum, order) => {
     })
   }
 
+  {loading && <div className="flex justify-center items-center h-screen w-screen">
+    <div className="border w-10 h-10 border-yellow-500"></div>
+  </div>}
   return (
     <div className="p-6">
        <div className="mb-8">

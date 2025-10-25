@@ -76,7 +76,7 @@ const AddFood = () => {
               value={form.title}
               onChange={handleChange}
               placeholder="Food Title"
-              className="w-full bg-black focus:bg-black text-white p-3 rounded-lg border border-slate-700 focus:ring-2 focus:ring-yellow-500 outline-none"
+              className="w-full bg-black focus:bg-black text-white p-3 rp border rounded-2xl border-slate-700 focus:ring-2 focus:ring-yellow-500 outline-none"
               required
             />
           </div>
@@ -89,7 +89,7 @@ const AddFood = () => {
               value={form.subtitle}
               onChange={handleChange}
               placeholder="Short description"
-              className="w-full bg-black focus:bg-black text-white p-3 rounded-lg border border-slate-700 focus:ring-2 focus:ring-yellow-500 outline-none"
+              className="w-full bg-black focus:bg-black text-white p-3 rp border rounded-2xl border-slate-700 focus:ring-2 focus:ring-yellow-500 outline-none"
               required
             />
           </div>
@@ -103,7 +103,7 @@ const AddFood = () => {
               onChange={handleChange}
               placeholder="Price"
               step="0.01"
-              className="w-full bg-black focus:bg-black text-white p-3 rounded-lg border border-slate-700 focus:ring-2 focus:ring-yellow-500 outline-none"
+              className="w-full bg-black focus:bg-black text-white p-3 rp border rounded-2xl border-slate-700 focus:ring-2 focus:ring-yellow-500 outline-none"
               required
             />
           </div>
@@ -114,7 +114,7 @@ const AddFood = () => {
               name="category"
               value={form.category}
               onChange={handleChange}
-              className="w-full bg-black focus:bg-black text-white p-3 rounded-lg border border-slate-700 focus:ring-2 focus:ring-yellow-500 outline-none"
+              className="w-full bg-black focus:bg-black text-white p-3 rp border rounded-2xl border-slate-700 focus:ring-2 focus:ring-yellow-500 outline-none"
               required
             >
               <option value="">Select Category</option>
@@ -133,14 +133,14 @@ const AddFood = () => {
               name="image"
               accept="image/*"
               onChange={handleChange}
-              className="w-full bg-black focus:bg-black text-white p-3 rounded-lg border border-slate-700 focus:ring-2 focus:ring-yellow-500 outline-none"
+              className="w-full bg-black focus:bg-black text-white p-3 rp border rounded-2xl border-slate-700 focus:ring-2 focus:ring-yellow-500 outline-none"
               required
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 mt-2 rounded-lg font-semibold bg-yellow-500 hover:from-white hover:bg-yellow-400 hover:text-white text-slate-900 shadow-md shadow-cyan-600/30 transition"
+            className="w-full py-3 mt-2 rounded-2xl font-semibold bg-yellow-500 hover:from-white hover:bg-yellow-400 hover:text-white text-slate-900 shadow-md shadow-cyan-600/30 transition"
           >
             {loading ? "Loading..." : "Add Food"} 
           </button>

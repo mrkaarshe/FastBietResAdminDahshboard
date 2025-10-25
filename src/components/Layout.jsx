@@ -36,7 +36,7 @@ export default function Layout({ children, onLogout }) {
       >
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="py-4 px-6 border-b border-zinc-800 flex items-center justify-between">
+          <div className="min-h-19 py-2 px-6 border-b border-zinc-800 flex items-center justify-between">
             <h1 className="text-2xl font-bold text-yellow-400">FastBite</h1>
             <button
               onClick={() => setSidebarOpen(false)}
@@ -91,7 +91,7 @@ export default function Layout({ children, onLogout }) {
 
 
       {/* Topbar */}
-      <header className="w-full lg:ml-64 border-b border-zinc-800 py-3 px-4 flex items-center justify-between bg-black overflow-hidden">
+      <header className="w-full lg:ml-64 border-b border-zinc-800 py-[10px] px-4 flex items-center justify-between bg-black overflow-hidden">
         <div className="flex items-center gap-4">
           <Button
             onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -107,7 +107,7 @@ export default function Layout({ children, onLogout }) {
 
       {/* Main Content */}
       <main className="flex-1 lg:ml-64 min-h-[90vh] overflow-hidden">
-        <div className="p-6 lg:p-8">{children}</div>
+        <div className=" lg:p-8">{children}</div>
       </main>
     </div>
   )
