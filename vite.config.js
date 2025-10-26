@@ -7,7 +7,7 @@ export default defineConfig({
     port: 4000,
     proxy: {
       "/api": {
-        target: "https://fastbietres.onrender.com/",
+        target: "https://fastbietres.onrender.com",
         changeOrigin: true,
       },
     },

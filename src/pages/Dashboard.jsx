@@ -74,7 +74,7 @@ const totalPrice = data.reduce((sum, order) => {
     <div className="border w-10 h-10 border-yellow-500"></div>
   </div>}
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex w-full flex-col gap-4">
        <div className="mb-8">
         <h1 className="text-3xl mt-0 sm:mt-10 md:mt-0 font-bold text-yellow-500 mb-2">Dashboard</h1>
         <p className="text-gray-400">Welcome back! Here's your restaurant overview.</p>

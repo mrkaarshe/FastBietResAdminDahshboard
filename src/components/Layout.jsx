@@ -136,7 +136,7 @@ export default function Layout({ children, onLogout }) {
           {sidebarOpen ? <X /> : <Menu />}
         </Button>
 
-        <h2 className="text-gray-200 text-3xl  font-bold ">FastBite Dashboard</h2>
+        <h2 className="text-gray-200 text-3xl  font-bold "><span className="text-yellow-500">FastBite</span> Dashboard</h2>
       </header>
 
       {/* Main */}

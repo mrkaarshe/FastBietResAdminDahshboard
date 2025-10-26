@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useEffect } from "react"
@@ -55,7 +56,5 @@ function App() {
         />
       </Routes>
     </Router>
-  )
-}
-
+)}
 export default App
