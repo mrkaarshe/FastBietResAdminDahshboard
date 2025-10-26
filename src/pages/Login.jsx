@@ -19,7 +19,7 @@ export default function Login({ onLogin }) {
     e.preventDefault();
     setLoading(true); // Start loading immediately
     try {
-      const url  = "https://fastbietres-1.onrender.com/api/user/login"
+      const url  = "https://fastbietresdashboar-2.onrender.com/api/user/login"
       const form = { email, password };
   
       const res = await fetch(url,{
