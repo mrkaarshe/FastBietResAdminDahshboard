@@ -130,7 +130,7 @@ export default function Layout({ children, onLogout }) {
       {/* Topbar */}
       <header
         className={`
-          w-full fixed top-0 z-10 border-b border-zinc-800 bg-black py-[14px] px-4 flex justify-around items-center
+          w-full fixed top-0 right-0 z-10 border-b border-zinc-800 bg-black py-[14px] px-4 flex justify-between items-center
           transition-all duration-300
           ${sidebarCollapsed ? "lg:pl-[100px]" : "lg:pl-[18rem]"}
         `}
