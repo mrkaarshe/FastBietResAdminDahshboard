@@ -14,38 +14,48 @@ export default function Login({ onLogin }) {
   const navigate = useNavigate()
   const { toast } = useToast()
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true); // Start loading immediately
-    try {
-      const url  = "https://fastbietres-1.onrender.com/api/auth/login"
-      const form = { email, password };
-  
-      const res = await fetch(url,{
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-  
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message || "Something went wrong");
-  
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  try {
+    const url  = "https://fastbietres-1.onrender.com/api/auth/login";
+    const form = { email, password };
 
-      localStorage.setItem("user", JSON.stringify(data));
-      localStorage.setItem("token", data.token);
-            toast({
-          title: "Success",
-          description: "Logged in successfully!",
-        })
-      
-     navigate("/dashboard");
-    } catch (err) {
-      console.error(err);
-      toast.error(err.message);
-    } finally {
-      setLoading(false); // Stop loading regardless of success or error
-    }
-  };
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || "Something went wrong");
+
+    // ✅ KU HAY MIDKAN HORE
+    localStorage.setItem("user", JSON.stringify(data.user));
+    localStorage.setItem("token", data.token);
+
+    toast({
+      title: "Success",
+      description: "Logged in successfully!",
+    });
+
+   
+    navigate("/dashboard");
+
+  } catch (err) {
+    console.error(err);
+
+    toast({
+      title: "Error",
+      description: err.message,
+      variant: "destructive",
+    });
+
+  } finally {
+    setLoading(false);
+  }
+};
+
   
 
 

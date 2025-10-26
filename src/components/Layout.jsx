@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
 import {
   LayoutDashboard,
@@ -36,6 +36,10 @@ export default function Layout({ children, onLogout }) {
     localStorage.removeItem("user")
     onLogout()
   }
+    useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) navigate("/login");
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white flex">
@@ -86,7 +90,7 @@ export default function Layout({ children, onLogout }) {
            
               <button
               onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-              className={`absolute ${sidebarOpen ? '-right-6' : 'right-10'}   top-1/2 transform text-4xl -translate-y-1/2 bg-zinc-800 hover:bg-zinc-700 p-2 rounded-full transition-all duration-300`}
+              className={`absolute ${sidebarOpen ? '-right-6' : '-right-0'}   top-1/2 transform text-4xl -translate-y-1/2 bg-zinc-800 hover:bg-zinc-700 p-2 rounded-full transition-all duration-300`}
             >
               <ArrowLeft className={`transition-transform duration-300 ${sidebarCollapsed ? "rotate-180" : ""}`} />
             </button>
@@ -124,7 +128,7 @@ export default function Layout({ children, onLogout }) {
       {/* Topbar */}
       <header
         className={`
-          w-full fixed top-0 z-10 border-b border-zinc-800 bg-black py-[14px] px-4 flex justify-between items-center
+          w-full fixed top-0 z-10 border-b border-zinc-800 bg-black py-[14px] px-4 flex justify-around items-center
           transition-all duration-300
           ${sidebarCollapsed ? "lg:pl-[100px]" : "lg:pl-[18rem]"}
         `}
