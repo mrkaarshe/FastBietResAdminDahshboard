@@ -6,44 +6,43 @@ import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
 import { useToast } from "../hooks/use-toast"
+import toast from "react-hot-toast";
 
 export default function Login({ onLogin }) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
-  const { toast } = useToast()
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true); // Start loading immediately
     try {
-      const url  = "https://fastbietres-1.onrender.com/api/auth/login"
+      const url  = "https://fastbietres-1.onrender.com/api/user/login"
       const form = { email, password };
   
       const res = await fetch(url,{
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type":
+           "application/json" },
         body: JSON.stringify(form),
       });
   
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Something went wrong");
-  
+
+      navigate("/dashboard");
 
       localStorage.setItem("user", JSON.stringify(data));
       localStorage.setItem("token", data.token);
-            toast({
-          title: "Success",
-          description: "Logged in successfully!",
-        })
-      
-     navigate("/dashboard");
+      toast.success("Login successful!");
+    
     } catch (err) {
       console.error(err);
-      toast.error(err.message);
+      toast.error(err.message || "Login failed");
     } finally {
-      setLoading(false); // Stop loading regardless of success or error
+      setLoading(false); 
     }
   };
   
