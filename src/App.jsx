@@ -1,60 +1,78 @@
-
 "use client"
-
-import { useState, useEffect } from "react"
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard"
 import AddFood from "./pages/AddFood"
 import ManageFoods from "./pages/ManageFoods"
 import Orders from "./pages/Orders"
 import Layout from "./components/Layout"
+import ProtectedRoute from "./routes/ProtectedRoute"
 import { Toaster } from "./components/ui/toaster"
 
-function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-
-  useEffect(() => {
-    const user = localStorage.getItem("token")
-    setIsAuthenticated(!!user)
-  }, [])
-
-  const handleLogin = () => {
-    setIsAuthenticated(true)
-  }
-
-  const handleLogout = () => {
-    localStorage.removeItem("token")
-    setIsAuthenticated(false)
-  }
-
+export default function App() {
   return (
     <Router>
       <Toaster />
       <Routes>
+
+        <Route path="/login" element={<Login />} />
+
         <Route
-          path="/login"
-          element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login onLogin={handleLogin} />}
-        />
-        <Route
-          path="/*"
+          path="/"
           element={
-            isAuthenticated ? (
-              <Layout onLogout={handleLogout}>
-                <Routes>
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/add-food" element={<AddFood />} />
-                  <Route path="/manage-foods" element={<ManageFoods />} />
-                  <Route path="/orders" element={<Orders />} />
-                  <Route path="/" element={<Navigate to="/dashboard" />} />
-                </Routes>
+            <ProtectedRoute>
+              <Layout>
+                <Dashboard />
               </Layout>
-            ) : (
-              <Navigate to="/login" />
-            )
+            </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <Dashboard />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/add-food"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <AddFood />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/manage-foods"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <ManageFoods />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/orders"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <Orders />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+
       </Routes>
     </Router>
-)}
-export default App
+  )
+}

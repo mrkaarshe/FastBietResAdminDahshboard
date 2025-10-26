@@ -20,7 +20,9 @@ export default function Layout({ children, onLogout }) {
   const location = useLocation()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [sidebarCollapsed, setSidebarCollapsed] = useState(true)
-  const user = JSON.parse(localStorage.getItem("user")) || {}
+  const storedUser = localStorage.getItem("user");
+  const user = storedUser ? JSON.parse(storedUser) : null;
+ 
 
   const navigation = [
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },

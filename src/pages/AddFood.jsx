@@ -5,10 +5,8 @@ import { useNavigate } from "react-router-dom";
 const AddFood = () => {
   const navigate = useNavigate();
   const [loading , setloading] = useState(false)
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (!user || user.role !== "admin") {
-    navigate("/"); // redirect if not admin
-  }
+  const user = JSON.parse(localStorage.getItem("user") || "{}")
+
 
   const [form, setForm] = useState({
     title: "",
