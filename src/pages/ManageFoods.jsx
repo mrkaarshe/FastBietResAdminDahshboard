@@ -26,7 +26,7 @@ export default function ManageFoods() {
   const fetchFoods = async () => {
     try {
       setLoading(true);
-      const response = await fetch("https://fastbietres-1.onrender.com/api/foods/getfood");
+      const response = await fetch("https://fastbietres-4.onrender.com/api/foods/getfood");
       if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
       const data = await response.json();
       setFoods(data); // <-- Use setFoods here, not setFood
@@ -49,7 +49,7 @@ export default function ManageFoods() {
     const token = localStorage.getItem("token");
     try {
       setLoading(true);
-      const res = await fetch(`https://fastbietres-1.onrender.com/api/foods/delete/${id}`, {
+      const res = await fetch(`https://fastbietres-4.onrender.com/api/foods/delete/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -119,7 +119,7 @@ export default function ManageFoods() {
                 {/* Image */}
                 <div className="relative w-full overflow-hidden">
                   <img
-                    src={`https://fastbietres-1.onrender.com${item.image}`}
+                    src={`https://fastbietres-4.onrender.com/{item.image}`}
                     alt={item.title}
                     className="object-cover w-full h-60 rounded-t-xl transition-transform duration-500 group-hover:scale-110"
                   />

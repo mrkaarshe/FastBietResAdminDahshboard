@@ -19,7 +19,7 @@ export default function Login() {
     setLoading(true)
 
     try {
-      const res = await fetch("https://fastbietres-1.onrender.com/api/auth/login", {
+      const res = await fetch("https://fastbietres-4.onrender.com/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
