@@ -171,7 +171,7 @@ export default function AdminOrders() {
               {order.items
                 .map((item) => {
                   const price = item.totalPrice ? item.totalPrice.toFixed(2) : "0.00"
-                  return `$${price}`
+                  
                 })
                 .join(", ")}
             </td>
