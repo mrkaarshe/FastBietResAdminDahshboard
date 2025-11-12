@@ -117,7 +117,7 @@ export default function AdminOrders() {
                 <th className="px-4 py-3">Phone</th>
                 <th className="px-4 py-3">Items</th>
                 <th className="px-4 py-3">Payment</th>
-                <th className="px-4 py-3">Curency</th>
+                <th className="px-4 py-3">MoneyNumber</th>
                 <th className="px-4 py-3">Status</th>
                 <th className="px-4 py-3">Placed</th>
                 <th className="px-4 py-3">TotalPrice</th>
