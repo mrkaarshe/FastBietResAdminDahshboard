@@ -107,7 +107,7 @@ export default function Layout({ children, onLogout }) {
             ) : (
               <div className="w-full bg-zinc-900 p-3 rounded-md text-sm text-gray-400 text-center">
                 <p className="text-white font-semibold">Admin User</p>
-                {user?.email && <p>@{user.email}</p>}
+                {user?.email && <p>{user.email}</p>}
               </div>
             )}
 

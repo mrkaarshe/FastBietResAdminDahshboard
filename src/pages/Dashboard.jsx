@@ -52,7 +52,7 @@ const totalPrice = data.reduce((sum, order) => {
 
 
   const pendingOrders = data.filter((o) => o.status === "Pending").length
-  const confirmedOrders = data.filter((o) => o.status === "Confirmed").length
+  const DeliveredOrders = data.filter((o) => o.status === "Delivered").length
   const totalFoodItems = data.reduce(
     (acc, order) => acc + order.items.reduce((sum, i) => sum + i.quantity, 0),
     0
@@ -104,10 +104,10 @@ const totalPrice = data.reduce((sum, order) => {
         <Card className="bg-black border-zinc-800 p-5 hover:border-yellow-400/40 transition">
           <CardContent className="p-6 flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Confirmed Orders</p>
-              <h2 className="text-3xl font-bold text-green-400">{confirmedOrders}</h2>
+              <p className="text-gray-400 text-sm">Delivered Orders</p>
+              <h2 className="text-3xl font-bold text-blue-400">{DeliveredOrders}</h2>
             </div>
-            <CheckCircle className="h-10 w-10 rounded-full  text-green-400" />
+            <CheckCircle className="h-10 w-10 rounded-full  text-blue-400" />
           </CardContent>
         </Card>
 
@@ -115,15 +115,15 @@ const totalPrice = data.reduce((sum, order) => {
           <CardContent className="p-6 flex items-center justify-between">
             <div>
               <p className="text-gray-400 text-sm">Total Food Items</p>
-              <h2 className="text-3xl font-bold text-blue-400">{totalFoodItems}</h2>
+              <h2 className="text-3xl font-bold text-cyan-400">{totalFoodItems}</h2>
             </div>
-            <List className="h-10 w-10 text-blue-400" />
+            <List className="h-10 w-10 text-cyan-400" />
           </CardContent>
         </Card>
                 <Card className="bg-black border-zinc-800 p-5 hover:border-yellow-400/40 transition">
           <CardContent className="p-6 flex items-center justify-between">
             <div>
-              <p className="text-gray-400 text-sm">Total Food Items</p>
+              <p className="text-gray-400 text-sm">Total prices</p>
               <h2 className="text-3xl font-bold text-purple-500">${totalPrice.toFixed()}</h2>
             </div>
             <DollarSign className="h-10 w-10 text-purple-500" />

@@ -9,6 +9,7 @@ import Layout from "./components/Layout"
 import ProtectedRoute from "./routes/ProtectedRoute"
 import { Toaster } from "./components/ui/toaster"
 
+
 export default function App() {
   return (
     <Router>
