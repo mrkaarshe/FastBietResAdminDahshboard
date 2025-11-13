@@ -173,7 +173,7 @@ export default function AdminOrders() {
                   const price = item.totalPrice ? item.totalPrice.toFixed(2) : "0.00"
                   return `$${price}`
                 })
-                .join(", ")}
+                }
             </td>
                   {/* ACTIONS */}
                   <td className="px-4 py-3">
