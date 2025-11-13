@@ -170,8 +170,7 @@ export default function AdminOrders() {
             <td className="px-4 py-3 text-gray-300">
               {order.items
                 .map((item) => {
-                  const price = item.totalPrice ? item.totalPrice.toFixed(2) : "0.00"
-                  return `$${price}`
+                 {item.totalPrice}
                 })
                 }
             </td>
