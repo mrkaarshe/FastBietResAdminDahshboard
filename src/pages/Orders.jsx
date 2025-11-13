@@ -168,10 +168,7 @@ export default function AdminOrders() {
                     })}
                   </td>
             <td className="px-4 py-3 text-gray-300">
-              {order.items
-                .map((item) => {
-                 {item.totalPrice}
-                })
+              {order.items.totalPrice
                 }
             </td>
                   {/* ACTIONS */}
