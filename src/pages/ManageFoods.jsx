@@ -119,7 +119,7 @@ export default function ManageFoods() {
                 {/* Image */}
                 <div className="relative w-full overflow-hidden">
                   <img
-                    src={`${item.image}`}
+                    src={item.image}
                     alt={item.title}
                     className="object-cover w-full h-60 rounded-t-xl transition-transform duration-500 group-hover:scale-110"
                   />
